@@ -14,6 +14,7 @@
 		return $full_title;
 	}
 	add_filter('wp_title', 'dav_filter_title', 5, 3);
-
+	register_nav_menu('Main Nav Menu', 'Header Nav');
+	wp_enqueue_style('main-stylesheet', get_stylesheet_uri());
 	
 ?>

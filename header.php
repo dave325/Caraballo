@@ -10,16 +10,7 @@
 </head>
 <body <?php body_class(); ?>>
 	<nav id="header-nav-menu">
-		<?php
-		$the_slug = 'home-content';
-		$args = array (
-				'name' => $the_slug 
-		);
-		$my_posts = get_posts ( $args );
-		if ($my_posts) :
-			echo $my_posts [0]->post_content;
-		endif;
-		?>
+		<img src="<?php echo get_template_directory_uri()?>/logo.png">
 			<?php
 			$dav_nav_menu = array (
 					'container' => false,
@@ -33,3 +24,19 @@
 	</nav>
 	<!-- End of navbar -->
 	<div id="ddata-container">
+	<header>
+	<div id="home-floating-text">
+		<?php
+		$the_slug = 'home-content';
+		$args = array (
+				'name' => $the_slug 
+		);
+		$my_posts = get_posts ( $args );
+		if ($my_posts) :
+			echo $my_posts [0]->post_content;
+		
+		
+			endif;
+		?>
+	</div>
+</header>

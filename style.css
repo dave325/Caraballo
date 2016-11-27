@@ -125,6 +125,15 @@ header img {
 	width: 100%;
 	hieght: 100%;
 }
+
+.blog-content{
+	width:80%;
+	margin:2% auto;
+}
+.blog-content img{
+	display:block;
+	margin:3% auto;
+}
 /*********Navigation style*********/
 nav {
 	position: fixed;
@@ -153,7 +162,7 @@ nav a:hover {
 	display: none;
 }
 
-#home-upcoming-events h2, #home-past-events h2, #mission-statement h2 {
+#home-upcoming-events h2, #home-past-events h2, #mission-statement h2,#resources h2, .blog h1 {
 	background-color: rgb(55, 123, 177);
 	text-align: center;
 	color: rgb(255, 164, 48);
@@ -187,7 +196,10 @@ nav a:hover {
 #home-past-events {
 	clear: both;
 }
-
+.clear{
+clear:both;
+display:block;
+}
 /*****Past Events Section*****/
 #home-past-events {
 	padding-bottom: 10%;
@@ -262,6 +274,14 @@ nav a:hover {
 	text-align: center;
 }
 
+.past-event-title a{
+	color:rgb(91,50,113);
+	transition:all 0.5s;
+}
+
+.past-event-title a:hover{
+	color:rgb(55,123,177);
+}
 .event-container {
 	width: 80%;
 	margin: 3% auto 2% auto;
@@ -276,6 +296,17 @@ nav a:hover {
 
 .past-event-title {
 	margin-bottom: 3%;
+}
+
+/********* Resources Page ******/
+.article-block{
+	width:20%;
+	background-color:rgb(246,169,194);
+	border:2px solid #000;
+	margin:3%;
+	text-align:center;
+	padding:2%;
+	
 }
 /********Footer*******/
 footer {
@@ -409,5 +440,14 @@ footer .footer-social-media-icons {
 		margin-bottom:5%;
 		height:auto;
 		min-height:50px;
+	}
+	.article-block{
+		width:95%;
+		margin-left:0px;
+	}
+}
+@media screen and (min-width:450px) {
+#motivation .article-block{
+		float:left;	
 	}
 }
