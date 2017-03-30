@@ -9,6 +9,7 @@ get_header();
 <section id="contact-page">
 		<article id="contact">
         	<form id="ddata-form" class="ddata-contact-form" method="POST" action="/script/contact-form-validation.php" data-ajax="false">
+        		<h2>Contact Form</h2>
 	        	<div id="ddata-incorrect-box"></div>
 	        	<input name="ddata_send_email" type="hidden" class="ddata_input_field" id="ddata_send_email" value="limaryscaraballo@gmail.com">
 	        	<br>
