@@ -14,7 +14,7 @@ if ($query->have_posts ()) :
 		<?php the_post_thumbnail();?>
 		</div>
 	<div class="home-upcoming-div home-upcoming-description">
-		<h3> <?php echo get_the_title(); ?> </h3>
+		<h3> <?php the_title(); ?> </h3>
 		<?php the_content();?>
 		</div>
 		<?php endwhile; wp_reset_postdata();  endif;?>
