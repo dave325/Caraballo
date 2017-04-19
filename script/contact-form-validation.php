@@ -53,7 +53,7 @@ function ddata_form_data_function() {
 			}else{
 				$ddata_json_data['error'] .= 'No value for ' . $v['label'];
 			}
-		}else if($v['type'] === 'password' || $v['type'] === 'search' || $v['type'] === 'text' || $v['type'] === 'number'){
+		}else if($v['type'] === 'password' || $v['type'] === 'search' || $v['type'] === 'text' || $v['type'] === 'number' || $v['type'] === 'textarea'){
 			if(isset($k) && strlen($ddata_value_test) > 0){
 				$ddata_json_data[$ddata_label_name] = $ddata_value_test;
 			}else{

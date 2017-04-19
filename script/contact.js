@@ -18,6 +18,7 @@ jQuery(document).ready(function() {
 			var checkbox_field = j(this).attr('name');
 			var field = j(this).attr('id');
 			var value = j(this).attr('value');
+			var textAreaVal = j(this).val();
 			var type = j(this).attr('type');
 			var required = j(this).attr('required');
 			if (type == 'date') {
@@ -37,8 +38,8 @@ jQuery(document).ready(function() {
 			} else {
 				ddata_input.push({
 					'field' : field,
-					'value' : value,
-					'type' : type,
+					'value' : textAreaVal,
+					'type' : "textarea",
 					'required' : required
 				});
 			}
@@ -114,7 +115,11 @@ jQuery(document).ready(function() {
 			else if (j(this)[0]['type'] == 'hidden'){
 				ddata_json_array[j(this)[0]['field']] = {'value' : j(this)[0]['value'], 'type' : j(this)[0]['type']};
 			}
+			else{
+				ddata_json_array[j(this)[0]['field']] = {'value' : j(this)[0]['value'], 'type' : j(this)[0]['textarea']};
+			}
 		});
+		
 		if (j('#ddata-honeypot').val() == '' && error_message == '') {
 			ddata_json_array['action'] = 'ddata_form_data';
 			ddata_json_array['nonce'] = ajaxObj.nonce;

@@ -23,7 +23,7 @@ get_header();
 	        	</div> <br>
 	        	<div class="ddata-input-row">
 		        	<label for="ddata_contact_field_3"> Message</label>
-		        	<input type="text" id="ddata_contact_field_3" name="ddata_contact_field_3" class="ddata_input_field" required="required">
+		        	<textarea id="ddata_contact_field_3" name="ddata_contact_field_3" class="ddata_input_field" required="required" col="10" row="30"></textarea>
 	        	</div> <br>
 	        	<input type="hidden" name="ddata-hidden-honeypot" id="ddata-honeypot" value=""><div class="ddata-input-row">
 	        	<input type="submit" id="ddata-submit-button" name="ddata_submit_button" value="submit">

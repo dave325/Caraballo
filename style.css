@@ -143,8 +143,7 @@ header img {
 .blog-content img {
 	display: block;
 	margin: 3% auto;
-	width: 30%;
-	height: 300px;
+	width: 100%;
 }
 /*********Navigation style*********/
 nav {
@@ -175,7 +174,7 @@ nav a:hover {
 	display: none;
 }
 
-#home-upcoming-events h2, #home-past-events h2, #mission-statement h2,
+#home-past-events h2, #mission-statement h2,
 	#resources h2, .blog h1 {
 	background-color: rgb(55, 123, 177);
 	text-align: center;
@@ -256,16 +255,16 @@ nav a:hover {
 /**********End of home page styles**********/
 
 /**********Start of About Page*************/
-#mission-statement h2, #who-we-are h2 {
+#mission-statement h2, #who-we-are h2, #home-upcoming-events h2 {
 	text-align: center;
 	color: rgb(255, 164, 48);
 	background-color: rgb(55, 123, 177);
-	margin-bottom: 5%;
+	padding: 20px 0px;
 }
 
 #mission-statement p, #who-we-are p {
 	width: 50%;
-	margin: 0px auto 5% auto;
+	margin: 30px auto 5% auto;
 }
 /*********************End of About page *************/
 

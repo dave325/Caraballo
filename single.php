@@ -6,7 +6,6 @@ get_header();?>
 <h1><?php the_title()?></h1>
 <div class="blog-content">
 <?php the_post_thumbnail();?>
-<?php the_content();?>
 </div>
 <?php endwhile;?>
 

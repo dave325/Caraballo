@@ -1,5 +1,5 @@
 	<footer>
-		<div class="footer-social-media-icons"><img alt="Social Media image for Caraballo's Site" src="social_media.png"></div>
+		
 		<div class="footer-contact-info">
 		<?php
 		$the_slug = 'footer-contact';

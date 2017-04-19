@@ -6,46 +6,23 @@
  */
 get_header();?>
 <section id="upcoming-events-section">
-<?php 
+	<?php 
         	global $wpdb;
         	$args = array(
         		'category_name' => 'upcoming-events',
         		'posts_per_page' => 1
         	);
         	$query = new WP_QUERY($args);
-        	?> 
-        	<?php 
+        	?>
+	<?php 
         	if ($query->have_posts()): while ($query->have_posts()) : $query->the_post() 
         	?>
-		<div class="image-thumbnail"><?php the_post_thumbnail();?></div>
-		<div class="past-text">
-		<h3 class="past-event-title"><?php the_title();?></h3>
-		<?php the_content();?>
-		</div>
-		<?php endwhile;wp_reset_postdata(); endif;?>
-		/*
-		<table class="home-past-event-table">
-			<tr id="home-past-heading">
-				<td>Title</td>
-				<td>Date</td>
-			</tr>
-			<?php 
-        	global $wpdb;
-        	$args = array(
-        		'category_name' => 'upcoming-events',
-        		'posts_per_page' => 3,
-        		'offset' => 1
-        	);
-        	$query = new WP_QUERY($args);
-        	?> 
-        	<?php 
-        	if ($query->have_posts()): while ($query->have_posts()) : $query->the_post() 
-        	?>
-        	<tr>
-				<td><?php the_title();?></td>
-				<td><?php get_post_custom_values("date");?></td>
-			</tr>
-        	<?php endwhile;wp_reset_postdata(); endif;?>
-        	</table>*/
-        	</section>
+	<h1>
+		<?php the_title()?>
+	</h1>
+	<div class="blog-content">
+		<?php the_post_thumbnail();?>
+	</div>
+	<?php endwhile;wp_reset_postdata(); endif;?>
+</section>
 <?php get_footer();?>
