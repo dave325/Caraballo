@@ -16,7 +16,9 @@
 	add_theme_support("post-thumbnails");
 	add_filter('wp_title', 'dav_filter_title', 5, 3);
 	register_nav_menu('Main Nav Menu', 'Header Nav');
-	wp_enqueue_style('main-stylesheet', get_stylesheet_uri());
+	wp_enqueue_style('main-stylesheet', get_stylesheet_uri())
+wp_deregister_script('jquery');
+wp_register_script('jquery', ("https://code.jquery.com/jquery-3.2.1.min.js"), false, '3.2.1');;
 	wp_enqueue_script("main-script", get_template_directory_uri() . '/script/script.js', array('jquery'));
 	wp_enqueue_script("contact-script", get_template_directory_uri() . '/script/contact.js', array('jquery'));
 	wp_localize_script("contact-script", 'ajaxObj', array(

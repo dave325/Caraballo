@@ -3,23 +3,31 @@
  */
 jQuery(document).ready(function() {
 	var j = jQuery;
-	var i = 1;
-	var ddata_input = [];
-	var ddata_input_checkbox = [];
-	var ddata_input_radio = [];
-	var checkbox_array = {};
-	var radio_array = [];
-	var ddata_json_array = {};
-	var error_message = '';
-	var label_name = '';
 	j('.ddata-contact-form').submit(function(e, forminfo) {
 		e.preventDefault();
+		var i = 1;
+		var ddata_input = [];
+		var ddata_input_checkbox = [];
+		var ddata_input_radio = [];
+		var checkbox_array = {};
+		var radio_array = [];
+		var ddata_json_array = {};
+		var error_message = '';
+		var label_name = '';
 		j('.ddata_input_field').each(function() {
 			var checkbox_field = j(this).attr('name');
 			var field = j(this).attr('id');
-			var value = j(this).attr('value');
+			var value;
+ 			if(j(this).val() === ""){
+				value = "";
+			}else{
+				value = j(this).val();
+			}
 			var textAreaVal = j(this).val();
 			var type = j(this).attr('type');
+			if (j(this).hasClass('ddata_textbox')){
+				type = "textbox";
+			}
 			var required = j(this).attr('required');
 			if (type == 'date') {
 				j(this).datepicker();
@@ -38,8 +46,8 @@ jQuery(document).ready(function() {
 			} else {
 				ddata_input.push({
 					'field' : field,
-					'value' : textAreaVal,
-					'type' : "textarea",
+					'value' : value,
+					'type' : type,
 					'required' : required
 				});
 			}
@@ -74,7 +82,7 @@ jQuery(document).ready(function() {
 		});
 		j(ddata_input).each(function() {
 			var label_name = j('label[for="' + j(this)[0]['field'] + '"]').text();
-			if (j(this)[0]['type'] == 'text' || j(this)[0]['type'] == 'number' || j(this)[0]['type'] == 'password' || j(this)[0]['type'] == 'search') {
+			if (j(this)[0]['type'] == 'text' || j(this)[0]['type'] == 'number' || j(this)[0]['type'] == 'password' || j(this)[0]['type'] == 'search' || j(this)[0]['type'] == 'textbox') {
 				if (j(this)[0]['required'] == 'required') {
 					if (j(this)[0]['value'].length <= 0) {
 						error_message += "Please Include the information for the " + label_name + "</br>";
@@ -119,29 +127,32 @@ jQuery(document).ready(function() {
 				ddata_json_array[j(this)[0]['field']] = {'value' : j(this)[0]['value'], 'type' : j(this)[0]['textarea']};
 			}
 		});
-		
 		if (j('#ddata-honeypot').val() == '' && error_message == '') {
 			ddata_json_array['action'] = 'ddata_form_data';
-			ddata_json_array['nonce'] = ajaxObj.nonce;
 			ddata_json_array['site'] = window.location.href;
+			console.log(ddata_json_array);
 			j
 				.ajax({
 					type : 'post',
-					url : ajaxObj.ajaxurl,
+					url : 'contact-form-validation.php',
 					data : ddata_json_array,
-					success : function(
+					dataType:'json'
+				})
+					.done(function(
 						data) {
+								console.log('php sent');
+								console.log(data);
 						j('#ddata-incorrect-box')
 							.append(
 								'<p> Thank you very much. We will get back to you shortly </p>').fadeIn();
 
-					},
-					error : function(data){
+					})
+					.fail(function(xhr, textStatus,responseText){
+						console.log(xhr);
 						j('#ddata-incorrect-box')
 						.append(
-							data).fadeIn();
-					}
-				});
+							xhr.responseText).fadeIn();
+					});
 		} else {
 			j('#ddata-incorrect-box').html('<p> Please Correct the following:</p> <br />' + error_message).fadeIn();
 		}
